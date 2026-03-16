@@ -20,6 +20,7 @@ const ticketNotificationSchema = new Schema({
             values: [ticket.SUCCESS,ticket.FAILED,ticket.PENDING],
             message: "Invalid ticket status"
         },
+        default: ticket.PENDING,
         required: true
     }
 },{timestamps: true})

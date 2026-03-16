@@ -8,6 +8,7 @@ const sendEmail = (userId,password)=>{
             pass: password,
         },
     })
+    
 
     transporter.sendMail({
         from: "freeh3961@gmail.com",

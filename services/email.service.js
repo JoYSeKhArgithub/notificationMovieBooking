@@ -8,6 +8,8 @@ const sendEmail = (userId,password)=>{
             pass: password,
         },
     })
+
+
     
 
     transporter.sendMail({

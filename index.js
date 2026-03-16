@@ -23,3 +23,5 @@ connectDB()
 .catch((err)=>{
     console.log("Failed to connect to DB", err);
 })
+
+

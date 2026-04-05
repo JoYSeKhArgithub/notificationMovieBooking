@@ -17,4 +17,29 @@ const createNoty = async(data)=>{
     }
 }
 
-export default { createNoty }
+const getAllNotification = async()=>{
+    try {
+        const notification = await TicketNotificationModel.find({})
+
+        return notification;
+    } catch (error) {
+        throw error
+    }
+}
+
+const getNotificationById = async(id)=>{
+    try {
+        const response = await TicketNotificationModel.findById(id);
+        if(!response){
+            throw {
+                error: "No ticket details found",
+                code: STATUS_CODES.NOT_FOUND
+            }
+        }
+        return response;
+    } catch (error) {
+        throw error
+    }
+}
+
+export default { createNoty, getAllNotification, getNotificationById }

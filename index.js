@@ -2,8 +2,8 @@ import express from 'express'
 import dotenv from 'dotenv'
 import bodyParser from 'body-parser';
 import connectDB from './db/index.js';
-import sendEmail from './services/email.service.js';
-import NotificationRoute from './router/ticket.route.js'
+import NotificationRoute from './router/ticket.route.js';
+import mailerCron from './crons/cron.js';
 
 dotenv.config()
 const port = process.env.PORT;
@@ -22,6 +22,7 @@ connectDB()
         console.log(`Server is running on port ${process.env.PORT}`);
         // sendEmail(process.env.EMAIL, process.env.EMAIL_PASSWORD)
     })
+    mailerCron()
 })
 .catch((err)=>{
     console.log("Failed to connect to DB", err);
